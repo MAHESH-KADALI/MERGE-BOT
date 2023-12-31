@@ -68,7 +68,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
             return
         UPLOAD_TO_DRIVE.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="Okay I'll upload to drive\nDo you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**",
+            text="Okay I'll upload to drive\nDo you want to rename? Default file name is **[@maheshsirop]_merged.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -100,7 +100,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "document":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": True})
         await cb.message.edit(
-            text="Do you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**",
+            text="Do you want to rename? Default file name is **[@maheshsirop]_merged.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -116,7 +116,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
     elif cb.data == "video":
         UPLOAD_AS_DOC.update({f"{cb.from_user.id}": False})
         await cb.message.edit(
-            text="Do you want to rename? Default file name is **[@yashoswalyo]_merged.mkv**",
+            text="Do you want to rename? Default file name is **[@maheshsirop]_merged.mkv**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -162,7 +162,7 @@ async def callback_handler(c: Client, cb: CallbackQuery):
 
         if "NO" in cb.data:
             new_file_name = (
-                f"downloads/{str(cb.from_user.id)}/[@yashoswalyo]_merged.mkv"
+                f"downloads/{str(cb.from_user.id)}/[@maheshsirop]_merged.mkv"
             )
             if user.merge_mode == 1:
                 await mergeNow(c, cb, new_file_name)
