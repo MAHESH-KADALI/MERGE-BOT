@@ -67,7 +67,7 @@ class MergeBot(Client):
 mergeApp = MergeBot(
     name="merge-bot",
     api_hash=Config.API_HASH,
-    api_id=int(Config.TELEGRAM_API),
+    api_id=Config.TELEGRAM_API,
     bot_token=Config.BOT_TOKEN,
     workers=300,
     plugins=dict(root="plugins"),
@@ -488,10 +488,10 @@ async def about_handler(c: Client, m: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("👨‍💻Developer👨‍💻", url="https://t.me/maheshsirop")],
+                [InlineKeyboardButton("👨‍💻Developer👨‍💻", url="https://t.me/yashoswalyo")],
                 [
                     InlineKeyboardButton(
-                        "🏘Source Code🏘", url="https://github.com"
+                        "Source Code", url="https://t.me/maheshsirop"
                     ),
                     InlineKeyboardButton(
                         "🤔Deployed By🤔", url=f"https://t.me/{Config.OWNER_USERNAME}"
@@ -741,7 +741,7 @@ if __name__ == "__main__":
         with userBot:
             userBot.send_message(
                 chat_id=int(LOGCHANNEL),
-                text="Bot booted with Premium Account,\n\n  Thanks for using me.",
+                text="Bot booted with Premium Account,\n\n  Thanks for using <a href='https://github.com/yashoswalyo/merge-bot'>this repo</a>",
                 disable_web_page_preview=True,
             )
             user = userBot.get_me()
