@@ -2,15 +2,15 @@
 ### PR's Welcomed
 <br>
 
-![GitHub Repo stars](https://img.shields.io/github/stars/yashoswalyo/MERGE-BOT?color=blue&style=flat)
-![GitHub forks](https://img.shields.io/github/forks/yashoswalyo/MERGE-BOT?color=green&style=flat)
-![GitHub issues](https://img.shields.io/github/issues/yashoswalyo/MERGE-BOT)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/yashoswalyo/MERGE-BOT)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yashoswalyo/MERGE-BOT)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/yashoswalyo/MERGE-BOT)
-![GitHub contributors](https://img.shields.io/github/contributors/yashoswalyo/MERGE-BOT?style=flat)
-![GitHub repo size](https://img.shields.io/github/repo-size/yashoswalyo/MERGE-BOT?color=red)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yashoswalyo/MERGE-BOT)
+![GitHub Repo stars](https://img.shields.io/github/stars/MAHESH-KADALI/MERGE-BOT?color=blue&style=flat)
+![GitHub forks](https://img.shields.io/github/forks/MAHESH-KADALI/MERGE-BOT?color=green&style=flat)
+![GitHub issues](https://img.shields.io/github/issues/MAHESH-KADALI/MERGE-BOT)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/MAHESH-KADALI/MERGE-BOT)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/MAHESH-KADALI/MERGE-BOT)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/MAHESH-KADALI/MERGE-BOT)
+![GitHub contributors](https://img.shields.io/github/contributors/MAHESH-KADALI/MERGE-BOT?style=flat)
+![GitHub repo size](https://img.shields.io/github/repo-size/MAHESH-KADALI/MERGE-BOT?color=red)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/MAHESH-KADALI/MERGE-BOT)
 
 An Telegram Bot By [Yash Oswal](https://t.me/yashoswalyo) To Merge multiple Videos in Telegram into single video. <br>
 Bugs should be reported at: [Telegram Group](https://t.me/yo_codes_support)
@@ -86,13 +86,13 @@ stats - (admin only) check bots stats
 
 ## Self Host
 ```sh
-$ git clone https://github.com/yashoswalyo/MERGE-BOT.git
-$ cd MERGE-BOT
-$ sudo apt-get install python3 python3-pip ffmpeg
-$ pip3 install -U pip
-$ pip3 install -U -r requirements.txt
-# <fill config.env correctly by looking at sample_config.env>
-$ bash start.sh
+git clone https://github.com/MAHESH-KADALI/MERGE-BOT.git
+cd MERGE-BOT
+sudo apt-get install python3 python3-pip ffmpeg
+pip3 install -U pip
+pip3 install -U -r requirements.txt
+<fill config.env correctly by looking at sample_config.env>
+bash start.sh
 ```
 
 ## License
