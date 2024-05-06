@@ -12,8 +12,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/MAHESH-KADALI/MERGE-BOT?color=red)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/MAHESH-KADALI/MERGE-BOT)
 
-An Telegram Bot By [Yash Oswal](https://t.me/yashoswalyo) To Merge multiple Videos in Telegram into single video. <br>
-Bugs should be reported at: [Telegram Group](https://t.me/yo_codes_support)
+An Telegram Bot By [Mahesh](https://t.me/maheshsirol) To Merge multiple Videos in Telegram into single video. <br>
+Bugs should be reported at: [Telegram Group](https://t.me/hexafreinds)
 
 ```diff
 - TODO's:
@@ -35,11 +35,9 @@ Bugs should be reported at: [Telegram Group](https://t.me/yo_codes_support)
 + Log Channel to store all merged videos
 
 ```
-## Deploy Tutorial : 
-[![Watch the video](https://img.youtube.com/vi/H-xVk_4zccs/hqdefault.jpg)](https://youtu.be/H-xVk_4zccs)
 
 ## Deploy(at your own risk) :
-<p><a href="https://heroku.com/deploy?template=https://github.com/yashoswalyo/MERGE-BOT"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/MAHESH-KADALI/MERGE-BOT"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
 
 ### OR
 Goto `settings > actions > secret > New Repository Secret` <br>
@@ -48,11 +46,6 @@ Add `HEROKU_API_KEY` <br>
 Add `HEROKU_APP_NAME` <br>
 Add `CONFIG_FILE_URL` <br>
 Goto `Actions > Manual Deploy To Heroku > Run Workflow`
-
-### OR
-Coming soon
-## Tutorial to get MongoDB URI:
-[![Watch the video](https://img.youtube.com/vi/OfQ7xxMylV4/hqdefault.jpg)](https://youtu.be/OfQ7xxMylV4)
 
 
 ## Config File Variables :
@@ -116,7 +109,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 ## Credits
 
-- [Me](https://github.com/yashoswalyo) for [Nothing](https://github.com/yashoswalyo/MERGE-BOT) 😬
+- [Me](https://github.com/maheshsirop) for [solving some errors](https://github.com/MAHESH-KADALI/MERGE-BOT) 😅
+- [Yash Oswal](https://github.com/maheshsirop) for [Nothing](https://github.com/yashoswalyo/MERGE-BOT) 😬
 - [Dan](https://github.com/delivrance) for [Pyrogram](https://github.com/pyrogram/pyrogram) ❤️
 - [Abir Hasan](https://github.com/AbirHasan2005) for his wonderful [code](https://github.com/AbirHasan2005/VideoMerge-Bot) ❤️
 - [Jigarvarma2005](https://github.com/Jigarvarma2005) and [SpechIDE](https://t.me/spechide) for helping me to fix bugs 🤓
