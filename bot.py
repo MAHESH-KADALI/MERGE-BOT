@@ -40,6 +40,8 @@ from __init__ import (
     bMaker,
     formatDB,
     gDict,
+    config_dict,
+    user_data,
     queueDB,
     replyDB,
 )
