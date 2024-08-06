@@ -77,7 +77,20 @@ if DATABASE_URL:
                 with open(file_, 'wb+') as f:
                     f.write(value)
     conn.close()
-
+async def token_callback(_, query):
+    user_id = query.from_user.id
+    input_token = query.data.split()[1]
+    data = user_data.get(user_id, {})
+    if 'token' not in data or data['token'] != input_token:
+        return await query.answer('Already Used, Generate New One', show_alert=True)
+    update_user_ldata(user_id, 'token', str(uuid4()))
+    update_user_ldata(user_id, 'time', time())
+    await DbManager().update_user_data(user_id)
+    await query.answer('Activated Temporary Token!', show_alert=True)
+    kb = query.message.reply_markup.inline_keyboard[1:]
+    kb.insert(0, [InlineKeyboardButton(BotTheme('ACTIVATED'), callback_data='pass activated')])
+    await editReplyMarkup(query.message, InlineKeyboardMarkup(kb))
+	
 async def wzmlxcb(_, query):
     message = query.message
     user_id = query.from_user.id
