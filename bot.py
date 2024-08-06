@@ -6,7 +6,6 @@ load_dotenv(
 )
 from pymongo import MongoClient
 import asyncio
-from helpers import config_dict
 import os
 import shutil
 import time
