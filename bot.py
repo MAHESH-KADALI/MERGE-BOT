@@ -49,6 +49,36 @@ from helpers.utils import UserSettings, get_readable_file_size, get_readable_tim
 botStartTime = time.time()
 parent_id = Config.GDRIVE_FOLDER_ID
 
+DATABASE_URL = Config.dburl
+bot_id = Config.bot_token.split(':', 1)[0]
+
+if DATABASE_URL:
+    conn = MongoClient(DATABASE_URL)
+    db = conn.wzmlx
+    current_config = dict(dotenv_values('config.env'))
+    old_config = db.settings.deployConfig.find_one({'_id': bot_id})
+    if old_config is None:
+        db.settings.deployConfig.replace_one(
+            {'_id': bot_id}, current_config, upsert=True)
+    else:
+        del old_config['_id']
+    if old_config and old_config != current_config:
+        db.settings.deployConfig.replace_one(
+            {'_id': bot_id}, current_config, upsert=True)
+    elif config_dict := db.settings.config.find_one({'_id': bot_id}):
+        del config_dict['_id']
+        for key, value in config_dict.items():
+            environ[key] = str(value)
+    if pf_dict := db.settings.files.find_one({'_id': bot_id}):
+        del pf_dict['_id']
+        for key, value in pf_dict.items():
+            if value:
+                file_ = key.replace('__', '.')
+                with open(file_, 'wb+') as f:
+                    f.write(value)
+    conn.close()
+	
+
 
 class MergeBot(Client):
     def start(self):
