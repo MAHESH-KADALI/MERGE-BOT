@@ -18,6 +18,7 @@ gDict = defaultdict(lambda: [])
 queueDB = {}
 formatDB = {}
 replyDB = {}
+user_data = {}
 
 VIDEO_EXTENSIONS = ["mkv", "mp4", "webm", "ts", "wav", "mov"]
 AUDIO_EXTENSIONS = ["aac", "ac3", "eac3", "m4a", "mka", "thd", "dts", "mp3"]
