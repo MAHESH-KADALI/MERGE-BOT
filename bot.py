@@ -4,6 +4,7 @@ load_dotenv(
     "config.env",
     override=True,
 )
+from pymongo import MongoClient
 import asyncio
 from helpers import config_dict
 import os
