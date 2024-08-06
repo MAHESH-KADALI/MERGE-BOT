@@ -1,5 +1,5 @@
 import platform
-
+from bot.config import TG_CONFIG
 from bot.helper.ext_utils.shorteners import short_url
  #from bot.helper.ext_utils.db import bot_name
 from bot import botStartTime
