@@ -78,6 +78,29 @@ if DATABASE_URL:
                     f.write(value)
     conn.close()
 
+async def wzmlxcb(_, query):
+    message = query.message
+    user_id = query.from_user.id
+    data = query.data.split()
+    if user_id != int(data[1]):
+        return await query.answer(text="Not Yours Apna khud ka Generate kar stats se✨", show_alert=True)
+    elif data[2] == "stats":
+        msg, btn = await get_stats(query, data[3])
+        await editMessage(message, msg, btn)
+    else:
+        await query.answer()
+        await deleteMessage(message)
+        if message.reply_to_message:
+            await deleteMessage(message.reply_to_message)
+            if message.reply_to_message.reply_to_message:
+                await deleteMessage(message.reply_to_message.reply_to_message)
+                
+async def editMessage(message, text, buttons=None, photo=None):
+    try:
+        await message.edit(text=text, disable_web_page_preview=True, reply_markup=buttons)
+    except Exception as e:
+        #LOGGER.error(str(e))
+        return str(e)
 async def unverify(client,message):
     replyhi = message.reply_to_message
     user_id = replyhi.from_user.id
