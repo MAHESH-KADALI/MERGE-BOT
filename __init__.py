@@ -5,7 +5,9 @@ from logging.handlers import RotatingFileHandler
 import time
 import sys
 from helpers.msg_utils import MakeButtons
+from configure import bot_token
 
+config_dict = {'BOT_TOKEN': tgconfig.bot_token}
 """Some Constants"""
 MERGE_MODE = {}  # Maintain each user merge_mode
 UPLOAD_AS_DOC = {}  # Maintain each user ul_type
