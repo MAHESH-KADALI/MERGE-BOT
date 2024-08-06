@@ -7,7 +7,7 @@ from dotenv import dotenv_values
 from bot.config import TG_CONFIG
 import logging
 from __init__ import user_data, config_dict
-from bot impoer mergeApp
+from bot import mergeApp
 bot_loop = mergeApp.loop
 bot_id = TG_CONFIG.bot_token.split(':', 1)[0]
 DATABASE_URL = TG_CONFIG.dburl
