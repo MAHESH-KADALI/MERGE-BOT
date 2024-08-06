@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-
+user_data = {} 
 load_dotenv(
     "config.env",
     override=True,
