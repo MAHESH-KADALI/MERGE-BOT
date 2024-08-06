@@ -87,11 +87,6 @@ async def unverify(client,message):
     msg = "You Have Been Unverify by Admin Please Verify again!"
     return await sendMessage(message, msg)
 
-
-
-
-
-LOGGER = logging.getLogger(__name__)
 async def verify(client, message):
     usercheck = message.from_user.id
     buttons = ButtonMaker()
