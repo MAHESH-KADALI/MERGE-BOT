@@ -953,3 +953,4 @@ if __name__ == "__main__":
         pass
 
     mergeApp.run()
+    mergeApp.loop.run_until_complete(DbManager().db_load())
