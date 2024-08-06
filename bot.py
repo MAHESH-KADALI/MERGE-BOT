@@ -77,7 +77,106 @@ if DATABASE_URL:
                 with open(file_, 'wb+') as f:
                     f.write(value)
     conn.close()
-	
+
+async def unverify(client,message):
+    replyhi = message.reply_to_message
+    user_id = replyhi.from_user.id
+    data = user_data.get(user_id, {})
+    del data['time']
+    await DbManager().update_user_data(user_id)
+    msg = "You Have Been Unverify by Admin Please Verify again!"
+    return await sendMessage(message, msg)
+
+
+
+
+
+LOGGER = logging.getLogger(__name__)
+async def verify(client, message):
+    usercheck = message.from_user.id
+    buttons = ButtonMaker()
+    buttons.ubutton(BotTheme('ST_BN1_NAME'), BotTheme('ST_BN1_URL'))
+    buttons.ubutton(BotTheme('ST_BN2_NAME'), BotTheme('ST_BN2_URL'))
+    reply_markup = buttons.build_menu(2)
+    if TG_CONFIG.token_timeout and TG_CONFIG.owner_id == usercheck:
+        replyhi = message.reply_to_message
+        userid = replyhi.from_user.id
+    #    encrypted_url = message.command[1]
+      #  input_token, pre_uid = (b64decode(encrypted_url.encode()).decode()).split('&&')
+    #    if int(pre_uid) != userid:
+    #        return await sendMessage(message, BotTheme('OWN_TOKEN_GENERATE'))
+        data = user_data.get(userid, {})
+        input_token=data['token']
+     #   if 'token' not in data or data['token'] != input_token:
+      #      return await sendMessage(message, BotTheme('USED_TOKEN'))
+     #   elif config_dict['LOGIN_PASS'] is not None and data['token'] == config_dict['LOGIN_PASS']:
+       #     return await sendMessage(message, BotTheme('LOGGED_PASSWORD'))
+        buttons.ibutton(BotTheme('ACTIVATE_BUTTON'), f'vpass {input_token}', 'header')
+        reply_markup = buttons.build_menu(2)
+        msg = BotTheme('TOKEN_MSG', token=input_token, validity=get_readable_time(int(TG_CONFIG.token_timeout)))
+        return await sendMessage(message, msg, reply_markup)
+msg3 = False
+
+async def tokenverify(client, message):
+    user_id = message.from_user.id
+    button = None
+    token_msg, btn = checking_access(user_id, button)
+    if token_msg is not None:
+        return await sendMessage(message, token_msg, btn.build_menu(1))
+        
+    if token_msg is None:
+        msg2 = "You Are Verified Don't Worry✨"
+        msg3 = True
+        return await sendMessage(message, msg2)
+        
+
+async def token_callbackverify(_, query):
+    user_id = query.from_user.id
+    input_token = query.data.split()[1]
+    data = user_data.get(user_id, {})
+ #   if 'token' not in data or data['token'] != input_token:
+  #      return await query.answer('Already Used, Generate New One', show_alert=True)
+    update_user_ldata(user_id, 'token', str(uuid4()))
+    update_user_ldata(user_id, 'time', time())
+    await DbManager().update_user_data(user_id)
+    await query.answer('Activated Temporary Token!', show_alert=True)
+    kb = query.message.reply_markup.inline_keyboard[1:]
+    kb.insert(0, [InlineKeyboardButton(BotTheme('ACTIVATED'), callback_data='pass activated')])
+    return await editReplyMarkup(query.message, InlineKeyboardMarkup(kb))
+#botStartTime = time()
+async def editReplyMarkup(message, reply_markup):
+    try:
+        return await message.edit_reply_markup(reply_markup=reply_markup)
+    except MessageNotModified:
+        pass
+    except Exception as e:
+        LOGGER.error(str(e))
+        return str(e)
+
+async def deleteMessage(message):
+    try:
+        await message.delete()
+    except Exception as e:
+       # LOGGER.error(str(e))
+        return str(e)
+        
+async def sendMessage(message, text, buttons=None, photo=None, **kwargs):
+    try:
+        return await message.reply(text=text, quote=True, disable_web_page_preview=True, disable_notification=True,
+                                    reply_markup=buttons, reply_to_message_id=rply.id if (rply := message.reply_to_message) and not rply.text and not rply.caption else None,
+                                    **kwargs)
+    except Exception as e:
+     #   LOGGER.error(format_exc())
+        return str(e)
+
+
+
+
+
+
+
+
+
 
 
 class MergeBot(Client):
