@@ -6,7 +6,7 @@ from pymongo.errors import PyMongoError
 from dotenv import dotenv_values
 from bot.config import TG_CONFIG
 import logging
-from bot import user_data, config_dict
+from __init__ import user_data, config_dict
 
 bot_loop = app.loop
 bot_id = TG_CONFIG.bot_token.split(':', 1)[0]
