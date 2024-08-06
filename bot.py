@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-
+from bot.config import TG_CONFIG
 load_dotenv(
     "config.env",
     override=True,
